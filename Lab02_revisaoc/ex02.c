@@ -7,6 +7,5 @@ int main()
     for(int i = 0; i < strlen(nome); i++){
         printf("%c", nome[i]);
     }
-    
     return 0;
 }
