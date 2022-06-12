@@ -58,31 +58,33 @@ int main()
 
             case 4:
                 system("clear");
-                printf("Digite o elemento a ser inserido:");
-                scanf("%d",&elem);
-                if(insere_elem(lst, elem) == 1)
-                    printf("Elemento Inserido!\n");
-                else
-                    printf("Elemento NAO Inserido\n");
+                
                 break;
             
             case 5:
                 system("clear");
+                printf("Digite o elemento a ser inserido:");
+                scanf("%d",&elem);
+                if(insere_elem_ord(lst, elem) == 1)
+                    printf("Elemento Inserido!\n");
+                else
+                    printf("Elemento NAO Inserido\n");
                 break;
 
             case 6:
                 system("clear");
-                printf("Digite o elemento a ser removido:");
-                scanf("%d",&elem);
                 
-                if(remove_elem(lst,elem) == 1)
-                    printf("Elemento Removido!\n");
-                else
-                    printf("Elemento NAO Removido\n");
                 break;
 
             case 7:
                 system("clear");
+                printf("Digite o elemento a ser removido:");
+                scanf("%d",&elem);
+                
+                if(remove_elem_ord(lst,elem) == 1)
+                    printf("Elemento Removido!\n");
+                else
+                    printf("Elemento NAO Removido\n");
                 break;
             
             case 8:

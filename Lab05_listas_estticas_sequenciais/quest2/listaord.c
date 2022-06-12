@@ -41,24 +41,33 @@ int lista_cheia(lista *lst){
         return 0;
 }
 
-int insere_elem(lista *lst, int elem){
+int insere_elem_ord(lista *lst, int elem){
     if(lst == NULL || lista_cheia(lst) == 1)
         return 0; //Elemento não foi inserido
 
-    lst->no[lst->fim] = elem;
+    if(lista_vazia(lst) == 1 || elem >= lst->no[lst->fim-1])
+        lst->no[lst->fim] = elem;
+    else{
+        int i,aux = 0;
+        while(elem >= lst->no[aux])
+            aux++;
+        for(i = lst->fim;i > aux; i--)
+            lst->no[i] = lst->no[i-1];
+        lst->no[aux] = elem;
+    }
     lst->fim++;
-
     return 1;
 }
-int remove_elem(lista *lst, int elem){
-    if(lst == NULL || lista_cheia(lst) == 1)
+int remove_elem_ord(lista *lst, int elem){
+    if(lst == NULL || lista_cheia(lst) == 1 ||
+        elem < lst->no[0] || elem > lst->no[lst->fim-1])
         return  0;
 
     int i, aux=0;
 
-    while(aux < lst->fim && lst->no[aux] != elem)
+    while(aux < lst->fim && lst->no[aux] < elem)
         aux++;
-    if(aux == lst->fim)
+    if(aux == lst->fim || lst->no[aux] > elem)
         return 0;
 
     for(i = aux+1; i < lst->fim; i++)
