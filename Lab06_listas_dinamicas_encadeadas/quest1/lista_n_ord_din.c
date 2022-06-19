@@ -59,7 +59,7 @@ int remove_elem(Lista *lst, int elem){
 void obtem_valor_elem(Lista *lst){
     Lista aux = *lst;
     printf("Lista: ");
-    while(aux->prox != NULL){
+    while(aux != NULL){
         printf("%d ", aux->info);
         aux = aux->prox;
     }
